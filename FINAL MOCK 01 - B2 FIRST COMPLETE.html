@@ -90,6 +90,23 @@
       padding: 6px 16px; border-radius: 30px;
     }
 
+    .btn-key-setup {
+      background: var(--brand-gold-bg);
+      border: 1.5px solid var(--brand-gold);
+      color: var(--brand-gold);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 6px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .btn-key-setup:hover { background: var(--brand-gold); color: #ffffff; }
+
     .stepper-nav {
       max-width: 1440px; width: 96%; margin: 14px auto 8px auto;
       background: #ffffff; border: 1px solid var(--border-card);
@@ -247,6 +264,17 @@
       padding: 16px 36px; display: flex; align-items: center; justify-content: space-between;
       color: var(--text-muted); font-size: 13px; font-weight: 600; margin-top: auto;
     }
+
+    /* MODAL VEIL FOR API KEY */
+    .modal-veil {
+      position: fixed; inset: 0; background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(6px);
+      display: none; place-items: center; z-index: 500; padding: 20px;
+    }
+    .modal-veil.active { display: grid; }
+    .modal-box {
+      background: #ffffff; border-radius: 16px; max-width: 500px; width: 100%; padding: 28px 32px;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); border: 1px solid var(--border-card);
+    }
   </style>
 </head>
 <body>
@@ -266,6 +294,9 @@
       </div>
 
       <div class="status-cluster">
+        <button type="button" class="btn-key-setup" onclick="openKeyModal()">
+          <span>🔑</span> <span id="lblKeyStatus">API Key</span>
+        </button>
         <div class="timer-capsule" title="Time remaining for current section">
           <span>⏱</span> <span id="timerDisplay">75:00</span>
         </div>
@@ -718,7 +749,7 @@
           <div class="question-card"><div class="q-header"><div class="q-num-badge">3</div><div class="q-title-text">You hear a girl talking about a swimming race. How did she feel before it?</div></div>
             <label class="radio-card"><input type="radio" name="l_q3" value="A"> A) nervous about being watched</label>
             <label class="radio-card"><input type="radio" name="l_q3" value="B"> B) confident about her preparation</label>
-            <label class="radio-card"><input type="radio" name="l_q3" value="C"> C) disappointed by the weather</label>
+            <label class="radio-card"><input type="radio" name="l_q4" value="C"> C) disappointed by the weather</label>
           </div>
           <div class="question-card"><div class="q-header"><div class="q-num-badge">4</div><div class="q-title-text">You hear a man talking about a new game. Why does he recommend it?</div></div>
             <label class="radio-card"><input type="radio" name="l_q4" value="A"> A) It has high-quality graphics.</label>
@@ -939,7 +970,51 @@
     <span>JM ELT Solutions</span>
   </footer>
 
+  <!-- MODAL FOR API KEY CONFIGURATION -->
+  <div class="modal-veil" id="modalKeySetup">
+    <div class="modal-box">
+      <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border-card); padding-bottom:12px; margin-bottom:16px;">
+        <h3 style="font-family:'Space Grotesk'; font-size:18px; color:var(--text-main);">Configurar API Key</h3>
+        <button type="button" style="background:transparent; border:none; font-size:22px; cursor:pointer;" onclick="closeKeyModal()">&times;</button>
+      </div>
+      <p style="font-size:14px; color:var(--text-muted); line-height:1.5; margin-bottom:14px;">
+        La clave se almacena exclusivamente en tu navegador (<code>localStorage</code>) para que GitHub no bloquee el repositorio.
+      </p>
+      <input type="password" id="inputGeminiKey" style="width:100%; padding:10px 14px; border:1.5px solid var(--border-card); border-radius:8px; font-family:'JetBrains Mono'; font-size:14px; margin-bottom:18px; outline:none;" placeholder="Pega tu clave API aquí...">
+      <div style="display:flex; justify-content:flex-end; gap:10px;">
+        <button type="button" class="btn-act btn-prev" onclick="closeKeyModal()">Cancelar</button>
+        <button type="button" class="btn-act btn-next" onclick="saveGeminiKey()">Guardar</button>
+      </div>
+    </div>
+  </div>
+
   <script>
+    // SECURE API KEY MANAGEMENT
+    const STORAGE_KEY_API = "fce_gemini_api_key_v1";
+    function initApiKey() {
+      const saved = localStorage.getItem(STORAGE_KEY_API);
+      const lbl = document.getElementById('lblKeyStatus');
+      if (saved) {
+        lbl.innerText = "API Key: Active ✓";
+        document.getElementById('inputGeminiKey').value = saved;
+      } else {
+        lbl.innerText = "Configurar API Key";
+      }
+    }
+    function openKeyModal() { document.getElementById('modalKeySetup').classList.add('active'); }
+    function closeKeyModal() { document.getElementById('modalKeySetup').classList.remove('active'); }
+    function saveGeminiKey() {
+      const val = document.getElementById('inputGeminiKey').value.trim();
+      if (val) {
+        localStorage.setItem(STORAGE_KEY_API, val);
+        alert("Clave API guardada exitosamente en este navegador.");
+      } else {
+        localStorage.removeItem(STORAGE_KEY_API);
+      }
+      initApiKey();
+      closeKeyModal();
+    }
+
     // 1. DATA REPOSITORY & KEYS
     const DB_R = {
       q1:"A", q2:"A", q3:"C", q4:"A", q5:"C", q6:"D", q7:"B", q8:"C",
@@ -1283,7 +1358,7 @@
             ${passed ? '✓' : '✗'} ${title}: ${passed ? 'PASSED (B2 Standard)' : 'NOT ACHIEVED'}
           </h3>
           <p style="font-size:15px; color:#334155; margin-top:4px;">
-            Score: <strong>${score} / ${total}</strong> (Minimum standard: <strong>${threshold}</strong>).
+            Candidate achieved <strong>${score} / ${total}</strong> marks (Minimum standard: <strong>${threshold}</strong>).
             ${passed ? `Exceeded threshold by +${score - threshold} marks.` : `Lacks ${threshold - score} marks to meet standard.`}
           </p>
         </div>
@@ -1305,7 +1380,12 @@
 
       const t1 = document.getElementById('w_text1').value.trim();
       const t2 = document.getElementById('w_text2').value.trim();
-      const apiKey = "AQ.Ab8RN6J-SvXgFdeiXldPz5duZTZdq8ECCnHxLbSpJPKO7li_5w";
+      const apiKey = localStorage.getItem(STORAGE_KEY_API);
+
+      if (!apiKey) {
+        renderLocalWritingFallback(t1, t2, "No API key configured in browser. Configure key in top header.");
+        return;
+      }
 
       const prompt = `
 You are a senior Cambridge English B2 First writing examiner. Evaluate these candidate tasks:
@@ -1334,16 +1414,23 @@ Return STRICTLY JSON:
         renderVerdictBanner('bannerWri', "WRITING", parsed.total, 40, 24);
       } catch (e) {
         console.error("AI writing assessment error:", e);
-        const s1 = t1.length > 80 ? 12 : 5;
-        const s2 = t2.length > 80 ? 12 : 5;
-        const tot = s1 + s2;
-        document.getElementById('t_w1').textContent = `${s1}/20`;
-        document.getElementById('t_w2').textContent = `${s2}/20`;
-        document.getElementById('t_wT').textContent = `${tot}/40`;
-        renderVerdictBanner('bannerWri', "WRITING", tot, 40, 24);
+        renderLocalWritingFallback(t1, t2, "AI assessment fallback used due to connection error.");
       }
     }
 
+    function renderLocalWritingFallback(t1, t2, msg) {
+      const s1 = t1.length > 80 ? 12 : 5;
+      const s2 = t2.length > 80 ? 12 : 5;
+      const tot = s1 + s2;
+      document.getElementById('t_w1').textContent = `${s1}/20`;
+      document.getElementById('t_w2').textContent = `${s2}/20`;
+      document.getElementById('t_wT').textContent = `${tot}/40`;
+      renderVerdictBanner('bannerWri', "WRITING", tot, 40, 24);
+      console.info(msg);
+    }
+
+    // Initialize environment
+    initApiKey();
     updateView();
   </script>
 </body>
