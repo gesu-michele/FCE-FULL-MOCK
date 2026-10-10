@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cambridge B2 First • Consolidated Diagnostic Report | JM ELT Solutions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@600;700;800&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-body: #f8fafc;
+      --surface-white: #ffffff;
+      --border-subtle: #e2e8f0;
+      --border-strong: #cbd5e1;
+
+      --cambridge-navy: #0b1e36;
+      --cambridge-blue: #1d4ed8;
+      --cambridge-blue-light: #eff6ff;
+      --cambridge-red: #b91c1c;
+
+      --cambridge-table-green: #70a22e;
+      --cambridge-table-green-dark: #588022;
+      --cambridge-table-grey: #e9ecef;
+
+      --emerald: #059669;
+      --emerald-light: #d1fae5;
+      --danger: #dc2626;
+      --danger-light: #fee2e2;
+
+      --gold: #b45309;
+      --gold-light: #fef3c7;
+
+      --text-main: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+
+      --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
+      --shadow-card: 0 8px 24px -4px rgba(15, 23, 42, 0.06);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+    body {
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(29, 78, 216, 0.04) 0px, transparent 40%),
+        radial-gradient(at 100% 100%, rgba(180, 83, 9, 0.04) 0px, transparent 40%);
+    }
+
+    /* HEADER */
+    header.report-header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid var(--border-subtle);
+      padding: 16px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .brand-cluster {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .cambridge-badge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 14px;
+      background: var(--surface-white);
+      border: 1.5px solid var(--border-subtle);
+      border-radius: 10px;
+    }
+
+    .cambridge-crest {
+      width: 26px;
+      height: 26px;
+      fill: var(--cambridge-red);
+    }
+
+    .brand-titles h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--cambridge-navy);
+      line-height: 1.1;
+    }
+
+    .brand-titles span {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--cambridge-blue);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: block;
+    }
+
+    .author-cluster {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      text-align: right;
+    }
+
+    .author-name {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 15px;
+      color: var(--cambridge-navy);
+    }
+
+    .author-tag {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    /* MAIN REPORT CONTAINER */
+    main.report-container {
+      max-width: 1360px;
+      width: 94%;
+      margin: 36px auto 60px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+    }
+
+    /* GLOBAL VERDICT CARD */
+    .verdict-hero-card {
+      background: var(--surface-white);
+      border: 2px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 36px 42px;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .verdict-info-left h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 32px;
+      font-weight: 900;
+      color: var(--cambridge-navy);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .verdict-info-left p {
+      font-size: 16.5px;
+      color: var(--text-body);
+      max-width: 720px;
+      line-height: 1.6;
+    }
+
+    .verdict-badge-box {
+      border-radius: 16px;
+      padding: 20px 32px;
+      text-align: center;
+      min-width: 260px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .verdict-badge-box.passed {
+      background: var(--emerald-light);
+      border: 2px solid var(--emerald);
+      color: var(--emerald);
+    }
+
+    .verdict-badge-box.failed {
+      background: var(--danger-light);
+      border: 2px solid var(--danger);
+      color: var(--danger);
+    }
+
+    .verdict-badge-box span {
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .verdict-badge-box strong {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 36px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    /* OFFICIAL BENCHMARK MATRIX (EXACT IMAGE REPRODUCTION) */
+    .matrix-section-card {
+      background: var(--surface-white);
+      border: 2px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 38px 44px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .matrix-title-line {
+      font-family: 'Outfit', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--cambridge-navy);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .benchmark-table-wrapper {
+      margin-bottom: 24px;
+    }
+
+    .benchmark-domain-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 6px;
+    }
+
+    .cambridge-official-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 4px;
+      margin-bottom: 4px;
+    }
+
+    .cambridge-official-table th {
+      background: var(--cambridge-table-green);
+      color: #ffffff;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 15px;
+      padding: 12px 14px;
+      text-align: center;
+      border-radius: 4px;
+    }
+
+    .cambridge-official-table th.th-total {
+      background: var(--cambridge-table-green);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+    }
+
+    .cambridge-official-table td {
+      background: var(--cambridge-table-grey);
+      color: var(--cambridge-navy);
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 800;
+      font-size: 17px;
+      padding: 14px 12px;
+      text-align: center;
+      border-radius: 4px;
+    }
+
+    .cambridge-official-table td.td-total {
+      font-size: 18px;
+      color: #0b1e36;
+      background: #dde2e6;
+    }
+
+    .min-pass-indicator {
+      text-align: right;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #64748b;
+      margin-top: 4px;
+    }
+
+    /* DETAILED FEEDBACK SECTION */
+    .detailed-section-card {
+      background: var(--surface-white);
+      border: 2px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 38px 44px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .feedback-tabs-nav {
+      display: flex;
+      gap: 10px;
+      border-bottom: 2px solid var(--border-subtle);
+      padding-bottom: 14px;
+      margin-bottom: 26px;
+      overflow-x: auto;
+    }
+
+    .tab-btn {
+      font-family: 'Outfit', sans-serif;
+      font-size: 15.5px;
+      font-weight: 800;
+      padding: 10px 20px;
+      border-radius: 10px;
+      background: #f1f5f9;
+      color: var(--text-muted);
+      border: 1.5px solid transparent;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+
+    .tab-btn:hover {
+      background: var(--cambridge-blue-light);
+      color: var(--cambridge-blue);
+    }
+
+    .tab-btn.active {
+      background: var(--cambridge-blue);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(29, 78, 216, 0.25);
+    }
+
+    .tab-content-panel {
+      display: none;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .tab-content-panel.active {
+      display: flex;
+    }
+
+    /* ITEM FEEDBACK CARD (GREEN/RED HIGHLIGHT) */
+    .item-result-card {
+      background: #ffffff;
+      border: 2px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: transform 0.15s ease;
+    }
+
+    .item-result-card.correct {
+      border-left: 6px solid var(--emerald);
+      background: #f0fdf4;
+    }
+
+    .item-result-card.incorrect {
+      border-left: 6px solid var(--danger);
+      background: #fef2f2;
+    }
+
+    .item-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .item-q-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--cambridge-navy);
+    }
+
+    .verdict-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+
+    .verdict-pill.correct {
+      background: var(--emerald-light);
+      color: var(--emerald);
+      border: 1px solid var(--emerald);
+    }
+
+    .verdict-pill.incorrect {
+      background: var(--danger-light);
+      color: var(--danger);
+      border: 1px solid var(--danger);
+    }
+
+    .comparison-row {
+      display: flex;
+      gap: 20px;
+      font-size: 15px;
+      flex-wrap: wrap;
+    }
+
+    .ans-box {
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+    }
+
+    .ans-box.user {
+      background: #ffffff;
+      border: 1.5px solid var(--border-strong);
+      color: var(--text-body);
+    }
+
+    .ans-box.key {
+      background: var(--gold-light);
+      border: 1.5px solid var(--gold);
+      color: var(--gold);
+    }
+
+    .pedagogical-explanation-box {
+      font-size: 15px;
+      color: var(--text-body);
+      line-height: 1.6;
+      border-top: 1px dashed var(--border-subtle);
+      padding-top: 10px;
+    }
+
+    .script-quote {
+      font-style: italic;
+      background: rgba(255, 255, 255, 0.7);
+      border-left: 3px solid var(--cambridge-blue);
+      padding: 6px 12px;
+      margin: 6px 0;
+      border-radius: 4px;
+      font-size: 14.5px;
+      color: #1e3a8a;
+    }
+
+    .trap-note {
+      font-size: 14px;
+      color: #991b1b;
+      margin-top: 4px;
+    }
+
+    /* WRITING RUBRIC CARDS */
+    .rubric-score-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin: 14px 0;
+    }
+
+    @media (max-width: 768px) {
+      .rubric-score-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .rubric-pill {
+      background: #ffffff;
+      border: 2px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 12px;
+      text-align: center;
+    }
+
+    .rubric-pill span {
+      display: block;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    .rubric-pill strong {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 20px;
+      color: var(--cambridge-blue);
+    }
+
+    /* ACTION BOTTOM BUTTONS */
+    .report-actions-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn-act {
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      padding: 14px 28px;
+      border-radius: 10px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      border: 2px solid transparent;
+      transition: all 0.2s;
+    }
+
+    .btn-hub {
+      background: var(--cambridge-navy);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(11, 30, 54, 0.25);
+    }
+
+    .btn-hub:hover {
+      background: #172a53;
+      transform: translateY(-2px);
+    }
+
+    .btn-retake {
+      background: #ffffff;
+      border-color: var(--border-strong);
+      color: var(--text-body);
+    }
+
+    .btn-retake:hover {
+      background: #f1f5f9;
+    }
+
+    /* FOOTER */
+    footer.master-footer {
+      background: #ffffff;
+      border-top: 2px solid var(--border-subtle);
+      padding: 22px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+      font-size: 13.5px;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    footer.master-footer strong {
+      color: var(--cambridge-navy);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="report-header">
+    <div class="brand-cluster">
+      <div class="cambridge-badge">
+        <svg class="cambridge-crest" viewBox="0 0 24 24">
+          <path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm0 2.18l6 2.25v4.66c0 4.14-2.73 8.02-6 9.11-3.27-1.09-6-4.97-6-9.11V6.43l6-2.25z"/>
+        </svg>
+        <div class="brand-titles">
+          <h1>CAMBRIDGE ENGLISH</h1>
+          <span>B2 First • Final Diagnostic Assessment</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="author-cluster">
+      <span class="author-name">Dr. Jesús Miguel Lima E. • JM ELT Solutions</span>
+      <span class="author-tag">Cambridge CELTA & DELTA Certified</span>
+    </div>
+  </header>
+
+  <!-- MAIN REPORT -->
+  <main class="report-container">
+
+    <!-- OVERALL VERDICT -->
+    <section class="verdict-hero-card">
+      <div class="verdict-info-left">
+        <h2 id="globalVerdictTitle">Evaluating Performance...</h2>
+        <p id="globalVerdictDesc">
+          Your consolidated examination report includes official Cambridge assessment criteria across Reading, Use of English, Writing, and Listening.
+        </p>
+      </div>
+      <div class="verdict-badge-box" id="globalVerdictBox">
+        <span>Overall Result</span>
+        <strong id="globalGrandScore">-- / 140</strong>
+        <small id="globalVerdictLabel" style="font-weight:800;">CALCULATING</small>
+      </div>
+    </section>
+
+    <!-- OFFICIAL BENCHMARK CRITERIA TABLES (EXACT IMAGE STRUCTURE) -->
+    <section class="matrix-section-card">
+      <div class="matrix-title-line">
+        <span>📊</span> Consolidated Score Summary by Domain
+      </div>
+
+      <!-- 1. READING -->
+      <div class="benchmark-table-wrapper">
+        <div class="benchmark-domain-label">READING</div>
+        <table class="cambridge-official-table">
+          <thead>
+            <tr>
+              <th>Part 1 (8)</th>
+              <th>Part 5 (6x2)</th>
+              <th>Part 6 (6x2)</th>
+              <th>Part 7 (10)</th>
+              <th class="th-total">TOTAL (42)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="cell_r1">--</td>
+              <td id="cell_r5">--</td>
+              <td id="cell_r6">--</td>
+              <td id="cell_r7">--</td>
+              <td class="td-total" id="cell_rTotal">-- / 42</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="min-pass-indicator">Mínimo para aprobar: 24</div>
+      </div>
+
+      <!-- 2. USE OF ENGLISH -->
+      <div class="benchmark-table-wrapper">
+        <div class="benchmark-domain-label">USE OF ENGLISH</div>
+        <table class="cambridge-official-table">
+          <thead>
+            <tr>
+              <th>Part 2 (8)</th>
+              <th>Part 3 (8)</th>
+              <th>Part 4 (6x12)</th>
+              <th class="th-total">TOTAL (28)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="cell_u2">--</td>
+              <td id="cell_u3">--</td>
+              <td id="cell_u4">--</td>
+              <td class="td-total" id="cell_uTotal">-- / 28</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="min-pass-indicator">Mínimo para aprobar: 18</div>
+      </div>
+
+      <!-- 3. WRITING -->
+      <div class="benchmark-table-wrapper">
+        <div class="benchmark-domain-label">WRITING</div>
+        <table class="cambridge-official-table">
+          <thead>
+            <tr>
+              <th>Part 1 (20)</th>
+              <th>Part 2 (20)</th>
+              <th class="th-total">TOTAL (40)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="cell_w1">--</td>
+              <td id="cell_w2">--</td>
+              <td class="td-total" id="cell_wTotal">-- / 40</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="min-pass-indicator">Mínimo para aprobar: 24</div>
+      </div>
+
+      <!-- 4. LISTENING -->
+      <div class="benchmark-table-wrapper">
+        <div class="benchmark-domain-label">LISTENING</div>
+        <table class="cambridge-official-table">
+          <thead>
+            <tr>
+              <th>Part 1 (8)</th>
+              <th>Part 2 (10)</th>
+              <th>Part 3 (5)</th>
+              <th>Part 4 (7)</th>
+              <th class="th-total">TOTAL (30)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="cell_l1">--</td>
+              <td id="cell_l2">--</td>
+              <td id="cell_l3">--</td>
+              <td id="cell_l4">--</td>
+              <td class="td-total" id="cell_lTotal">-- / 30</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="min-pass-indicator">Mínimo para aprobar: 18</div>
+      </div>
+    </section>
+
+    <!-- DETAILED ITEM-BY-ITEM PEDAGOGICAL FEEDBACK -->
+    <section class="detailed-section-card">
+      <div class="matrix-title-line">
+        <span>💡</span> Detailed Pedagogical Feedback & Item Explanations
+      </div>
+
+      <!-- TABS -->
+      <div class="feedback-tabs-nav">
+        <button class="tab-btn active" onclick="showFeedbackTab('reading')">📖 Reading & UoE (52 Items)</button>
+        <button class="tab-btn" onclick="showFeedbackTab('writing')">✍️ Writing Assessment (AI Engine)</button>
+        <button class="tab-btn" onclick="showFeedbackTab('listening')">🎧 Listening Comprehension (30 Items)</button>
+      </div>
+
+      <!-- TAB 1: READING & USE OF ENGLISH -->
+      <div class="tab-content-panel active" id="tab_reading">
+        <div id="containerReadingFeedback"></div>
+      </div>
+
+      <!-- TAB 2: WRITING -->
+      <div class="tab-content-panel" id="tab_writing">
+        <div id="containerWritingFeedback"></div>
+      </div>
+
+      <!-- TAB 3: LISTENING -->
+      <div class="tab-content-panel" id="tab_listening">
+        <div id="containerListeningFeedback"></div>
+      </div>
+    </section>
+
+    <!-- ACTIONS -->
+    <div class="report-actions-row">
+      <button type="button" class="btn-act btn-retake" onclick="retakeExam()">
+        🔄 Reset & Retake Complete Mock
+      </button>
+      <a href="./index.html" class="btn-act btn-hub">
+        Return to Examination Hub ➔
+      </a>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="master-footer">
+    <div>
+      Cambridge B2 First Examination Mock Suite • All Rights Reserved © by <strong>Dr. Jesús Miguel Lima E.</strong>
+    </div>
+    <div>
+      <strong>JM ELT Solutions</strong>
+    </div>
+  </footer>
+
+  <script>
+    // PEDAGOGICAL EXPLANATIONS FOR READING
+    const READING_EXPLANATIONS = {
+      q1: "Collocation: 'regard ... as' is required by preposition 'as'. 'Consider' does not take 'as' in standard Cambridge English.",
+      q2: "'Explanation' fits the context of accounting for why friends purchase identical items.",
+      q3: "Collocation with preposition 'of': 'full of coincidences'. 'Crowded' takes 'with'.",
+      q4: "Conjunction: 'given that' means 'taking into consideration that'.",
+      q5: "Adjective followed by 'that'-clause: 'aware that the coincidence exists'.",
+      q6: "Conditional conjunction: 'Unless your birthday is today...' (meaning 'if not').",
+      q7: "Fixed idiom: 'come into contact with someone'.",
+      q8: "Collocation: 'brought to your attention'.",
+      q9: "Preposition of movement indicating cycling within an area: 'pedal around/round their neighbourhood'.",
+      q10: "Relative pronoun denoting place: 'in the area where the boys live'.",
+      q11: "Fixed prepositional phrase: 'in return for' or 'in exchange for a small fee'.",
+      q12: "Time adverb indicating past completion: 'started three years ago'.",
+      q13: "Dependent preposition: to 'invest in' something.",
+      q14: "Conjunction expressing concurrent action while cycling around town: 'when / as / while'.",
+      q15: "Non-defining relative pronoun referring back to the award.",
+      q16: "Idiomatic discourse marker: 'at the same time'.",
+      q17: "Noun derived from PERFORM required after adjective 'operational': 'performance'.",
+      q18: "Noun derived from VARIABLE indicating unpredictable fluctuations: 'variability'.",
+      q19: "Noun formed with suffix -ity/-ence indicating reliability: 'dependability / dependence'.",
+      q20: "Adverb modifying adjective 'low': NOTICE + ABLE + Y: 'noticeably'.",
+      q21: "Abstract noun derived from verb GROW: 'growth'.",
+      q22: "Noun formed from adjective NECESSARY: 'necessity'.",
+      q23: "Adjective meaning significant/substantial derived from CONSIDER: 'considerable'.",
+      q24: "Adjective meaning thriving/wealthy: PROSPER + OUS: 'prosperous'.",
+      q25: "Negative modal deduction in the past: can't + have + past participle: 'CAN'T HAVE KNOWN'.",
+      q26: "Past regret expressed using 'wish + past perfect': 'WISH I HAD / WISH I'D CONSULTED'.",
+      q27: "Passive reporting verb with infinitive: 'ARE THOUGHT TO DATE'.",
+      q28: "Result clause using 'such + a + adjective + singular countable noun': 'SUCH A SEVERE SNOWSTORM'.",
+      q29: "Causative structure: have + object + past participle: 'HAVING HIS/THE BAROMETER RESTORED'.",
+      q30: "Conditional link: 'as long as you': 'LONG AS YOU'.",
+      q31: "Option C: Jamie was explicitly motivated by avoiding high student debt liabilities.",
+      q32: "Option A: Jonathan wanted to sustain the career momentum and employment he had achieved.",
+      q33: "Option D: 'Peers' refers to fellow student learners of similar age and academic standing.",
+      q34: "Option B: Jamie highlights that workplace integration alongside distance study made him more employable.",
+      q35: "Option D: Dr Hallam stresses that candidates must fully comprehend the substantial commitment required.",
+      q36: "Option B: Jonathan calls for broader guidance on alternative vocational and remote degree tracks.",
+      q37: "Option E: Links logically to 'focusing on a subject' prior to sleep through mental imagery.",
+      q38: "Option C: 'Doing so' refers directly back to the clause 'jumping out of bed the moment you wake up'.",
+      q39: "Option G: 'When this consists of going over negative issues' elaborates on conscious waking rumination.",
+      q40: "Option D: 'About half of them' refers directly to the 'college students' in the trial.",
+      q41: "Option B: 'Scary ones that have such an effect on your kids' introduces the quote regarding children's monsters.",
+      q42: "Option F: Continues the discussion on adult nightmares acting as an urgent subconscious signal.",
+      q43: "Option B: Jade Pickett highlights adhering to statutory catering and cleanliness standards.",
+      q44: "Option D: Tina Tyford notes the physical ailments caused by sedentary desk work.",
+      q45: "Option C: Kara Francis compares her temporary home living room to working in an art studio.",
+      q46: "Option A: Petra Rosso mentions natural window light that keeps her focused.",
+      q47: "Option B: Jade Pickett notes that without such a kitchen, she would not enjoy her work half as much.",
+      q48: "Option A: Petra Rosso emphasizes establishing the right surrounding and psychological frame of mind.",
+      q49: "Option C: Kara Francis notes the calming effect the green landscape has on her portrait clients.",
+      q50: "Option D: Tina Tyford commissioned ergonomic seating to boost her performance and output.",
+      q51: "Option C: Kara Francis points out that her recent portraits display an air of serenity.",
+      q52: "Option A: Petra Rosso appreciates closing the door to switch off and spend time with family."
+    };
+
+    function loadConsolidatedReport() {
+      // 1. Load Data
+      const rData = JSON.parse(localStorage.getItem('fce_reading_scores_v1') || '{}');
+      const wData = JSON.parse(localStorage.getItem('fce_writing_scores_v1') || '{}');
+      const lDataRaw = JSON.parse(localStorage.getItem('fce_listening_trainer_v1') || '{}');
+      const lData = (lDataRaw.listeningScores && lDataRaw.listeningScores["mock_08_complete"]) || {};
+
+      // Reading Domain
+      const r_p1 = rData.p1 ?? 0;
+      const r_p5 = rData.p5 ?? 0;
+      const r_p6 = rData.p6 ?? 0;
+      const r_p7 = rData.p7 ?? 0;
+      const r_tot = rData.readingTotal ?? 0; // /42
+
+      document.getElementById('cell_r1').textContent = `${r_p1}/8`;
+      document.getElementById('cell_r5').textContent = `${r_p5}/12`;
+      document.getElementById('cell_r6').textContent = `${r_p6}/12`;
+      document.getElementById('cell_r7').textContent = `${r_p7}/10`;
+      document.getElementById('cell_rTotal').textContent = `${r_tot} / 42`;
+
+      // Use of English Domain
+      const u_p2 = rData.p2 ?? 0;
+      const u_p3 = rData.p3 ?? 0;
+      const u_p4 = rData.p4 ?? 0;
+      const u_tot = rData.uoeTotal ?? 0; // /28
+
+      document.getElementById('cell_u2').textContent = `${u_p2}/8`;
+      document.getElementById('cell_u3').textContent = `${u_p3}/8`;
+      document.getElementById('cell_u4').textContent = `${u_p4}/12`;
+      document.getElementById('cell_uTotal').textContent = `${u_tot} / 28`;
+
+      // Writing Domain
+      const w_p1 = wData.p1Score ?? 0;
+      const w_p2 = wData.p2Score ?? 0;
+      const w_tot = wData.grandTotal ?? 0; // /40
+
+      document.getElementById('cell_w1').textContent = `${w_p1}/20`;
+      document.getElementById('cell_w2').textContent = `${w_p2}/20`;
+      document.getElementById('cell_wTotal').textContent = `${w_tot} / 40`;
+
+      // Listening Domain
+      const l_p1 = lData.part1 ?? 0;
+      const l_p2 = lData.part2 ?? 0;
+      const l_p3 = lData.part3 ?? 0;
+      const l_p4 = lData.part4 ?? 0;
+      const l_tot = lData.total ?? 0; // /30
+
+      document.getElementById('cell_l1').textContent = `${l_p1}/8`;
+      document.getElementById('cell_l2').textContent = `${l_p2}/10`;
+      document.getElementById('cell_l3').textContent = `${l_p3}/5`;
+      document.getElementById('cell_l4').textContent = `${l_p4}/7`;
+      document.getElementById('cell_lTotal').textContent = `${l_tot} / 30`;
+
+      // Overall Grand Score & Verdict
+      const grandTotal = r_tot + u_tot + w_tot + l_tot; // /140
+      document.getElementById('globalGrandScore').textContent = `${grandTotal} / 140`;
+
+      const passedAll = (r_tot >= 24) && (u_tot >= 18) && (w_tot >= 24) && (l_tot >= 18);
+      const vBox = document.getElementById('globalVerdictBox');
+      const vTitle = document.getElementById('globalVerdictTitle');
+      const vDesc = document.getElementById('globalVerdictDesc');
+      const vLbl = document.getElementById('globalVerdictLabel');
+
+      if (passedAll) {
+        vBox.className = "verdict-badge-box passed";
+        vLbl.textContent = "CEFR B2 PASSED ✓";
+        vTitle.textContent = "✓ Cambridge B2 Standard Achieved!";
+        vDesc.textContent = `Congratulations! You successfully reached or surpassed the required minimum pass score across all 4 skill domains (Reading: ${r_tot}/42, Use of English: ${u_tot}/28, Writing: ${w_tot}/40, and Listening: ${l_tot}/30).`;
+      } else {
+        vBox.className = "verdict-badge-box failed";
+        vLbl.textContent = "NOT ACHIEVED ✗";
+        vTitle.textContent = "✗ B2 Standard Threshold Not Yet Met";
+        vDesc.textContent = `You achieved ${grandTotal}/140 marks. Review the domain tables above to check which sections fell below the minimum pass marks (Reading min. 24, UoE min. 18, Writing min. 24, Listening min. 18).`;
+      }
+
+      // Render Item-by-Item Tabs
+      renderReadingTab(rData);
+      renderWritingTab(wData);
+      renderListeningTab(lData);
+    }
+
+    // 1. RENDER READING & UOE ITEMS
+    function renderReadingTab(rData) {
+      const container = document.getElementById('containerReadingFeedback');
+      const items = rData.items || {};
+
+      if (Object.keys(items).length === 0) {
+        container.innerHTML = `<p style="color:var(--text-muted); font-size:15px;">No answers recorded for Paper 1.</p>`;
+        return;
+      }
+
+      let html = "";
+      for (let i = 1; i <= 52; i++) {
+        const keyName = 'q' + i;
+        const item = items[keyName] || { user: "Unanswered", key: "--", ok: false };
+        const isOk = item.ok || (item.mark === 2);
+        const exp = READING_EXPLANATIONS[keyName] || "Refer to the target text for contextual clue.";
+
+        html += `
+          <div class="item-result-card ${isOk ? 'correct' : 'incorrect'}">
+            <div class="item-card-top">
+              <span class="item-q-title">Question ${i} ${i <= 8 ? '(Part 1)' : i <= 16 ? '(Part 2)' : i <= 24 ? '(Part 3)' : i <= 30 ? '(Part 4)' : i <= 36 ? '(Part 5)' : i <= 42 ? '(Part 6)' : '(Part 7)'}</span>
+              <span class="verdict-pill ${isOk ? 'correct' : 'incorrect'}">
+                ${isOk ? '✓ CORRECT' : item.mark === 1 ? '½ PARTIAL (1/2 pt)' : '✗ INCORRECT'}
+              </span>
+            </div>
+            <div class="comparison-row">
+              <div>Your answer: <span class="ans-box user">${item.user}</span></div>
+              <div>Official key: <span class="ans-box key">${item.key}</span></div>
+            </div>
+            <div class="pedagogical-explanation-box">
+              <strong>💡 Pedagogical Analysis:</strong> ${exp}
+            </div>
+          </div>
+        `;
+      }
+      container.innerHTML = html;
+    }
+
+    // 2. RENDER WRITING ITEMS
+    function renderWritingTab(wData) {
+      const container = document.getElementById('containerWritingFeedback');
+      const ai = wData.aiDiagnostics;
+
+      if (!ai) {
+        container.innerHTML = `<p style="color:var(--text-muted); font-size:15px;">No writing evaluations recorded.</p>`;
+        return;
+      }
+
+      container.innerHTML = `
+        <!-- PART 1 -->
+        <div class="item-result-card ${wData.p1Score >= 12 ? 'correct' : 'incorrect'}">
+          <div class="item-card-top">
+            <span class="item-q-title">Paper 2 • Part 1 (Compulsory Essay)</span>
+            <span class="verdict-pill ${wData.p1Score >= 12 ? 'correct' : 'incorrect'}">
+              Score: ${wData.p1Score} / 20 (Min. to pass: 12)
+            </span>
+          </div>
+
+          <div class="rubric-score-grid">
+            <div class="rubric-pill"><span>Content</span><strong>${ai.part1.content}/5</strong></div>
+            <div class="rubric-pill"><span>Comm. Achievement</span><strong>${ai.part1.commAch}/5</strong></div>
+            <div class="rubric-pill"><span>Organisation</span><strong>${ai.part1.org}/5</strong></div>
+            <div class="rubric-pill"><span>Language</span><strong>${ai.part1.lang}/5</strong></div>
+          </div>
+
+          <div class="pedagogical-explanation-box">
+            <p><strong>Spelling & Punctuation:</strong> ${ai.part1.spellingAndPunctuation}</p>
+            <p style="margin-top:6px;"><strong>Coherence & Connectors:</strong> ${ai.part1.coherenceAndCohesion}</p>
+            <p style="margin-top:6px;"><strong>Task Fulfillment (Notes):</strong> ${ai.part1.taskFeedback}</p>
+          </div>
+        </div>
+
+        <!-- PART 2 -->
+        <div class="item-result-card ${wData.p2Score >= 12 ? 'correct' : 'incorrect'}">
+          <div class="item-card-top">
+            <span class="item-q-title">Paper 2 • Part 2 (Task: ${wData.task2Type || 'Chosen Option'})</span>
+            <span class="verdict-pill ${wData.p2Score >= 12 ? 'correct' : 'incorrect'}">
+              Score: ${wData.p2Score} / 20 (Min. to pass: 12)
+            </span>
+          </div>
+
+          <div class="rubric-score-grid">
+            <div class="rubric-pill"><span>Content</span><strong>${ai.part2.content}/5</strong></div>
+            <div class="rubric-pill"><span>Comm. Achievement</span><strong>${ai.part2.commAch}/5</strong></div>
+            <div class="rubric-pill"><span>Organisation</span><strong>${ai.part2.org}/5</strong></div>
+            <div class="rubric-pill"><span>Language</span><strong>${ai.part2.lang}/5</strong></div>
+          </div>
+
+          <div class="pedagogical-explanation-box">
+            <p><strong>Spelling & Punctuation:</strong> ${ai.part2.spellingAndPunctuation}</p>
+            <p style="margin-top:6px;"><strong>Coherence & Register:</strong> ${ai.part2.coherenceAndCohesion}</p>
+            <p style="margin-top:6px;"><strong>Task Fulfillment:</strong> ${ai.part2.taskFeedback}</p>
+          </div>
+        </div>
+
+        <!-- EXAMINER CONCLUSION -->
+        <div class="item-result-card" style="border-left-color:var(--gold); background:#fffbeb;">
+          <strong style="color:var(--cambridge-navy); font-size:16.5px;">👨‍🏫 Cambridge Examiner Concluding Summary</strong>
+          <p style="font-size:15px; color:var(--text-body); line-height:1.6; margin-top:4px;">
+            ${ai.examinerSummary}
+          </p>
+        </div>
+      `;
+    }
+
+    // 3. RENDER LISTENING ITEMS
+    function renderListeningTab(lData) {
+      const container = document.getElementById('containerListeningFeedback');
+      const items = lData.items || {};
+
+      if (Object.keys(items).length === 0) {
+        container.innerHTML = `<p style="color:var(--text-muted); font-size:15px;">No answers recorded for Paper 3.</p>`;
+        return;
+      }
+
+      let html = "";
+      for (let i = 1; i <= 30; i++) {
+        const keyName = 'q' + i;
+        const item = items[keyName] || { user: "Unanswered", key: "--", ok: false, script: "", why: "", trap: "" };
+
+        html += `
+          <div class="item-result-card ${item.ok ? 'correct' : 'incorrect'}">
+            <div class="item-card-top">
+              <span class="item-q-title">Question ${i} ${i <= 8 ? '(Part 1)' : i <= 18 ? '(Part 2)' : i <= 23 ? '(Part 3)' : '(Part 4)'}</span>
+              <span class="verdict-pill ${item.ok ? 'correct' : 'incorrect'}">
+                ${item.ok ? '✓ CORRECT' : '✗ INCORRECT'}
+              </span>
+            </div>
+            <div class="comparison-row">
+              <div>Your answer: <span class="ans-box user">${item.user}</span></div>
+              <div>Official key: <span class="ans-box key">${item.key}</span></div>
+            </div>
+            <div class="pedagogical-explanation-box">
+              <div class="script-quote"><strong>Audioscript Clue:</strong> ${item.script}</div>
+              <p><strong>Why this is correct:</strong> ${item.why}</p>
+              ${item.trap ? `<p class="trap-note"><strong>Distractor trap:</strong> ${item.trap}</p>` : ''}
+            </div>
+          </div>
+        `;
+      }
+      container.innerHTML = html;
+    }
+
+    // TAB SWITCHER
+    function showFeedbackTab(tabId) {
+      document.querySelectorAll('.tab-btn').forEach((btn, idx) => {
+        btn.classList.toggle('active', (tabId === 'reading' && idx === 0) || (tabId === 'writing' && idx === 1) || (tabId === 'listening' && idx === 2));
+      });
+      document.getElementById('tab_reading').classList.toggle('active', tabId === 'reading');
+      document.getElementById('tab_writing').classList.toggle('active', tabId === 'writing');
+      document.getElementById('tab_listening').classList.toggle('active', tabId === 'listening');
+    }
+
+    // RETAKE EXAM
+    function retakeExam() {
+      if (confirm("Are you sure you want to reset all candidate scores and restart the examination?")) {
+        localStorage.removeItem('fce_reading_scores_v1');
+        localStorage.removeItem('fce_writing_scores_v1');
+        localStorage.removeItem('fce_listening_trainer_v1');
+        window.location.href = './index.html';
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', loadConsolidatedReport);
+  </script>
+</body>
+</html>
